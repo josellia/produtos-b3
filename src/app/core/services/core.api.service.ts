@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+
 import { Observable, catchError, map, throwError } from "rxjs";
 
 
@@ -7,7 +8,6 @@ import { Observable, catchError, map, throwError } from "rxjs";
   providedIn: 'root'
 })
 export class CoreApiService<T> {
-  protected URL = 'http://localhost:3000/api/acoes';
 
   constructor(private http: HttpClient){}
 

@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  urlBase: '  http://localhost:3000/api/acoes'
+  urlBase: 'http://localhost:3000/api/acoes'
 };
 
