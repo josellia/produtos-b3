@@ -55,7 +55,7 @@ export class CadastroAcoesComponent implements OnInit {
     if (this.acoesForm.valid) {
       this.acoesStoreService.create$(this.acoesForm.value).subscribe(() => {
         console.log('Salvo com sucesso');
-        this.router.navigate(['/list-acoes']);
+       this.redirecionaListaAcoes();
       });
     } else {
       this.formErros = this.formErrorService.validateForm(

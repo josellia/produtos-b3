@@ -20,6 +20,13 @@
       "preco": 11.37,
       "pvp": 2.88,
       "id": 4
+    },
+    {
+      "nome": "ITSA4",
+      "quantidade": 7,
+      "preco": 700,
+      "pvp": 1.14,
+      "id": 5
     }
   ]
 }

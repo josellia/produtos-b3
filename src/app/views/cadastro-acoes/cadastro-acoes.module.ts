@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CadastroAcoesRoutingModule } from './cadastro-acoes-routing.module';
@@ -20,6 +20,7 @@ import { SharedModule } from '@shared/shared.module';
     SharedModule
   ],
 
-  exports: [ RouterModule]
+  exports: [ RouterModule],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class CadastroAcoesModule { }
