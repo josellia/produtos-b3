@@ -1,0 +1,39 @@
+{
+  "acoes": [
+    {
+      "id": 1,
+      "nome": "CMIG4",
+      "quantidade": 100,
+      "preco": 12.46,
+      "pvp": 4.04
+    },
+    {
+      "id": 2,
+      "nome": "ITAUSA4",
+      "quantidade": 100,
+      "preco": 12.46,
+      "pvp": 4.04
+    },
+    {
+      "id": 3,
+      "nome": "KLBN3",
+      "quantidade": 100,
+      "preco": 12.46,
+      "pvp": 4.04
+    },
+    {
+      "nome": "reee",
+      "quantidade": 12,
+      "preco": 0.5,
+      "pvp": "",
+      "id": 4
+    },
+    {
+      "nome": "SAPR11",
+      "quantidade": 45,
+      "preco": 23.37,
+      "pvp": 0.96,
+      "id": 5
+    }
+  ]
+}

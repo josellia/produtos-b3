@@ -21,6 +21,9 @@ export class CoreApiService<T> {
     )
   }
 
+  post(url:string, objectPost: T): Observable<T> {
+    return this.http.post<T>(url, objectPost);
+  }
   private handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }

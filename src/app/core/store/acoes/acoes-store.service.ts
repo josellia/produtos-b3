@@ -3,7 +3,7 @@ import { Store } from '../Store';
 import { Injectable } from '@angular/core';
 import { CoreApiService } from '@core/services/core.api.service';
 
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '@environments/environment';
 
 @Injectable({
@@ -24,4 +24,17 @@ export class AcoesStoreService extends Store<Acao[]> {
       .pipe(tap(this.store))
       .subscribe();
   };
+
+  create$ = (acao: Acao): Observable<Acao> =>
+    this.coreApiSerice.post(environment.urlBase, acao).pipe(
+      tap((resAcao) => {
+        this.store([
+          ...this.getAll(),
+          {
+            ...acao,
+            id: resAcao.id,
+          },
+        ]);
+      })
+    );
 }

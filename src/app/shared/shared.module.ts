@@ -10,7 +10,7 @@ import { ContainerComponent } from './templates/container/container.component';
 @NgModule({
   imports: [
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(AcoesInMemoryApi),
+    // HttpClientInMemoryWebApiModule.forRoot(AcoesInMemoryApi),
   ],
   declarations: [CardComponent, ContainerComponent],
   exports: [HttpClientModule, CardComponent, ContainerComponent],

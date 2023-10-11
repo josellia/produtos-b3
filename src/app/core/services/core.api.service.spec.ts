@@ -1,54 +1,86 @@
-
-
 import {
-    HttpClientTestingModule,
-    HttpTestingController,
+  HttpClientTestingModule,
+  HttpTestingController,
 } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreApiService } from './core.api.service';
 import { Acao } from '@shared/models/acoes.interface';
 import { environment } from '../../../environments/environment';
 import { TestBed } from '@angular/core/testing';
-
+import { HttpErrorResponse } from '@angular/common/http';
 
 describe('CoreApiService', () => {
-    let service: CoreApiService<Acao>;
-    let httpMock: HttpTestingController;
+  let service: CoreApiService<Acao>;
+  let httpMock: HttpTestingController;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule, RouterTestingModule],
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule],
+    });
+    service = TestBed.inject(CoreApiService);
+    httpMock = TestBed.inject(HttpTestingController);
+  });
 
-        });
-        service = TestBed.inject(CoreApiService);
-        httpMock = TestBed.inject(HttpTestingController);
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+
+  it('Quando a função findAll for chamada deve retornar a resposta com sucesso', (done) => {
+    const url = environment.urlBase;
+    const acao: Acao[] = [
+      {
+        id: 1,
+        nome: 'CEMIG4',
+        quantidade: 100,
+        preco: 12.45,
+        pvp: 1.15,
+      },
+    ];
+
+    service.findAll(url).subscribe((resp: Acao[]) => {
+      expect(resp).toEqual(acao);
+      done();
     });
 
+    const req = httpMock.expectOne(url);
 
-    it('should be created', () => {
-        expect(service).toBeTruthy();
+    expect(req.request.method).toBe('GET');
+    req.flush(acao);
+  });
+
+  it('Quando a função findAll for chamada deve retornar erro', () => {
+    const url = environment.urlBase;
+
+    service.findAll(url).subscribe(() => {
+      fail('Erro'),
+        (error: HttpErrorResponse) => {
+          expect(error.status).toEqual(404);
+        };
     });
 
-    it('Quando a função findAll for chamada deve retornar a resposta com sucesso ', (done) => {
-      const url = environment.urlBase;
-      const acao: Acao[] = [
-        {
-          id: 1,
-          nome: 'CEMIG4',
-          quantidade: 100,
-          preco: 12.45,
-          pvp: 1.15
-        }
-      ];
+    const req = httpMock.expectOne(url);
+    req.flush('404 error', { status: 404, statusText: 'Not found' });
+  });
 
-      service.findAll(url).subscribe((resp: Acao[]) => {
-        expect(resp).toEqual(acao);
-        done();
-      });
+  it('Quando a função post for chamada deve cadastrar os dados', (done) => {
+    const url = environment.urlBase;
+    const acao: Acao =
+      {
+        id: 1,
+        nome: 'CEMIG4',
+        quantidade: 100,
+        preco: 12.45,
+        pvp: 1.15,
+      };
 
-      const req = httpMock.expectOne(url);
+    service.post(url, acao).subscribe((resp: Acao) => {
+      expect(resp).toEqual(acao);
+      done();
+    });
 
-      expect(req.request.method).toBe('GET');
-      req.flush(acao);
+    const req = httpMock.expectOne(url);
+
+    expect(req.request.method).toBe('POST');
+    req.flush(acao);
   });
 });
