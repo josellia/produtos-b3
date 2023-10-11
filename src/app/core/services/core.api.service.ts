@@ -24,6 +24,11 @@ export class CoreApiService<T> {
   post(url:string, objectPost: T): Observable<T> {
     return this.http.post<T>(url, objectPost);
   }
+
+  delete(url:string, id: number | string):Observable<T> {
+    return this.http.delete<T>(`${url}/${id}`);
+ }
+
   private handleError(error: HttpErrorResponse) {
     return throwError(() => error);
   }

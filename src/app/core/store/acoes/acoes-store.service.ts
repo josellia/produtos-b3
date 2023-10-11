@@ -15,15 +15,13 @@ export class AcoesStoreService extends Store<Acao[]> {
   }
 
   init = (): void => {
-    if (this.getAll()) {
-      return;
-    }
+    if (this.getAll()) { return; }
 
-    this.coreApiSerice
-      .findAll(environment.urlBase)
-      .pipe(tap(this.store))
-      .subscribe();
-  };
+    this.coreApiSerice.findAll(environment.urlBase).pipe(
+      tap(this.store)
+    ).subscribe();
+  }
+
 
   create$ = (acao: Acao): Observable<Acao> =>
     this.coreApiSerice.post(environment.urlBase, acao).pipe(
@@ -37,4 +35,16 @@ export class AcoesStoreService extends Store<Acao[]> {
         ]);
       })
     );
+
+    delete$ = (acaoId: number) => this.coreApiSerice
+    .delete(environment.urlBase, acaoId)
+    .pipe(
+      tap(() => {
+        const acoes = this.getAll();
+        const postIndex = this.getAll().findIndex(item => item.id === acaoId);
+        acoes.splice(postIndex, 1);
+
+        this.store(acoes);
+      })
+    )
 }

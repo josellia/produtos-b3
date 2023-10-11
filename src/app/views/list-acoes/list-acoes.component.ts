@@ -24,4 +24,10 @@ export class ListAcoesComponent implements OnInit {
   redirecionaCadastroAcoes() {
     this.router.navigate(['/cadastro-acoes']);
   }
+
+  deleteAcoes(id: number) {
+   this.acoesStoreService.delete$(id).subscribe(() => {
+    console.log('Removido com sucesso')
+   })
+  }
 }

@@ -11,5 +11,5 @@ export abstract class Store<T> {
 
   getAll$ = (): Observable<T> => this.state$.asObservable();
 
-  store = (nexState: T): void => (this.state$.next(nexState));
+  store = (nextState: T) => (this.state$.next(nextState));
 }
