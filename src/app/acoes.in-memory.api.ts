@@ -18,6 +18,28 @@ export class AcoesInMemoryApi implements InMemoryDbService {
           quantidade: 100,
           preco: 9.45,
           pvp: 1.12
+        },
+        {
+          id: 3,
+          nome: 'ITSA4',
+          quantidade: 100,
+          preco: 9.45,
+          pvp: 1.12
+        },
+
+        {
+          id: 4,
+          nome: 'ITSA4',
+          quantidade: 100,
+          preco: 9.45,
+          pvp: 1.12
+        },
+        {
+          id: 5,
+          nome: 'ITSA4',
+          quantidade: 100,
+          preco: 9.45,
+          pvp: 1.12
         }
       ],
 

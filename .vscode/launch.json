@@ -1,18 +1,19 @@
+
 {
-  "version": "1.0.0",
+  "version": "0.2.0",
   "configurations": [
     {
+      "name": "Debug CRA Tests",
       "type": "node",
       "request": "launch",
-      "name": "Jest: current file",
-      //"env": { "NODE_ENV": "test" },
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
+      "runtimeExecutable": "${workspaceRoot}/node_modules/@angular/cli/bin/ng",
+      "args": [
+        "test",
+
+      ],
+      "cwd": "${workspaceRoot}",
       "console": "integratedTerminal",
-      "disableOptimisticBPs": true,
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
-      }
+      "internalConsoleOptions": "neverOpen"
     }
   ]
 }
