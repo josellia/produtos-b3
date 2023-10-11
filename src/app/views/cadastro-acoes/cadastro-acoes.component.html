@@ -3,4 +3,28 @@
   subTitulo="Área de ações"
   decricaoBtn="Minhas ações"
   (_onClick)="redirecionaListaAcoes()"
-></app-container>
+>
+
+<div class="form mt-4">
+  <form autocomplete="off" novalidate>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Ticket da ação</label>
+      <input type="text" name="nome" class="form-control" id="nome" aria-describedby="nome">
+      <div id="nome" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="quantidade" class="form-label">Quantidade</label>
+      <input type="number" name="quatidade" class="form-control" id="quantidade">
+    </div>
+    <div class="mb-3">
+      <label for="preco" class="form-label">Preço</label>
+      <input type="number" name="preco" class="form-control" id="preco">
+    </div>
+    <div class="mb-3">
+      <label for="pvp" class="form-label">P/VP</label>
+      <input type="number" class="form-control" id="pvp">
+    </div>
+    <button style="width: 100%;" type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>
+</app-container>
