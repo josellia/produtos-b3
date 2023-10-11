@@ -2,9 +2,10 @@
 
 
 .cards {
-  padding: 15px;
+  padding: rem(15px);
   display: flex;
   flex-flow: row wrap;
+
 }
 
 
@@ -122,7 +123,7 @@
     }
 
     .card__expander {
-      max-height: 1000px;
+      max-height: rem(1000px);
       min-height: 200px;
       overflow: visible;
       margin-top: 30px;
@@ -172,7 +173,8 @@
 
 .btn-group {
   display: flex;
-   align-items: center;
+  align-items: center;
+  border-top: 1px solid #0e0c0c;
   .fa {
     font-size: rem(30px);
   }
@@ -193,4 +195,23 @@
     width: calc(200% + 30px);
   }
 
+}
+
+.card-name {
+  text-transform: uppercase;
+}
+
+.pesquisar{
+  width: 70%;
+  margin-top: rem(20px);
+  padding: rem(25px);
+  max-width: 100%;
+  @include screen-md {
+    width: 100%;
+  }
+
+  input {
+    border: 2px solid $gray;
+    height: rem(50px);
+  }
 }

@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list-acoes.component.scss']
 })
 export class ListAcoesComponent implements OnInit {
-
-  acoes$!: Observable<Acao[]>;
+  searchText!: string;
+  acoes$!: Observable<Acao[] | any>;
 
  constructor(private acoesStoreService: AcoesStoreService, private router: Router){
   this.acoesStoreService.init();

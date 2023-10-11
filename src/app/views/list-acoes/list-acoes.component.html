@@ -4,21 +4,39 @@
   decricaoBtn="Adicionar"
   (_onClick)="redirecionaCadastroAcoes()"
 >
+  <div class="mb-3 pesquisar">
+    <input
+      [(ngModel)]="searchText"
+      class="form-control"
+      placeholder="Buscar ação"
+    />
+  </div>
   <!-- TODO: componentizar o card -->
-  <div class="cards">
-    <div *ngFor="let acao of acoes$ | async" class="card [ is-collapsed ]">
-      <div class="card__inner [ js-expander ]">
-        <span class="mt-3">{{ acao.nome }}</span>
-        <p class="mt-4">Quantidade: {{ acao.quantidade }}</p>
-        <p class="mt-4">Preço: {{ acao.preco | currency: 'BRL' }}</p>
-        <p class="mt-4">P/vp: {{ acao.pvp }}</p>
-        <div class="btn-group">
-          <button class="btn" (click)="deleteAcoes(acao.id)"><i class="fa fa-trash"></i></button>
-          <button class="btn"><i class="fa fa-edit"></i></button>
+  <div *ngIf="{ acoes: acoes$ | async } as a">
+    <div *ngIf="(a.acoes | filter: searchText).length > 0; else noResults">
+      <div class="cards">
+        <div
+          *ngFor="let acao of a.acoes | filter: searchText"
+          class="card [ is-collapsed ]"
+        >
+          <div class="card__inner [ js-expander ]">
+            <span class="mt-3 card-name">{{ acao.nome }}</span>
+            <p class="mt-4">Quantidade: {{ acao.quantidade }}</p>
+            <p class="mt-4">Preço: {{ acao.preco | currency: 'BRL' }}</p>
+            <p class="mt-4">P/vp: {{ acao.pvp }}</p>
+            <div class="btn-group">
+              <button class="btn" (click)="deleteAcoes(acao.id)">
+                <i class="fa fa-trash"></i>
+              </button>
+              <button class="btn"><i class="fa fa-edit"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </app-container>
 
-
+<ng-template #noResults>
+  <p>Nenhum resultado encontrado</p>
+</ng-template>

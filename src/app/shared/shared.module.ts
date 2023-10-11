@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AcoesInMemoryApi } from '../acoes.in-memory.api';
 import { CardComponent } from './components/card/card.component';
 import { ContainerComponent } from './templates/container/container.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 
@@ -12,7 +13,7 @@ import { ContainerComponent } from './templates/container/container.component';
     HttpClientModule,
     // HttpClientInMemoryWebApiModule.forRoot(AcoesInMemoryApi),
   ],
-  declarations: [CardComponent, ContainerComponent],
-  exports: [HttpClientModule, CardComponent, ContainerComponent],
+  declarations: [CardComponent, ContainerComponent, FilterPipe],
+  exports: [HttpClientModule, CardComponent, ContainerComponent, FilterPipe],
 })
 export class SharedModule {}

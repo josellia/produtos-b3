@@ -8,11 +8,18 @@
       "pvp": 4.04
     },
     {
-      "nome": "teste",
-      "quantidade": 1,
-      "preco": 2,
-      "pvp": 2,
-      "id": 2
+      "nome": "vale3",
+      "quantidade": 400,
+      "preco": 61.05,
+      "pvp": 1.63,
+      "id": 3
+    },
+    {
+      "nome": "CXSE3",
+      "quantidade": 600,
+      "preco": 11.37,
+      "pvp": 2.88,
+      "id": 4
     }
   ]
 }
