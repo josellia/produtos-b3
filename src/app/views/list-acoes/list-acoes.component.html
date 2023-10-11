@@ -1,22 +1,9 @@
-<section class="wrapper">
-  <header class="header">
-    <h1 class="header__title">
-      De olho nos meus investimentos <i class="fa fa-money mb-2"></i>
-    </h1>
-    <div class="header__content mt-4">
-      <h2 class="header__subtitle">Área de ações</h2>
-      <button class="btn btn-dark">Adicionar</button>
-    </div>
-    <!-- <div class="mb-3">
-      <label for="pesquisar" class="form-label">Buscar ação</label>
-      <input
-        type="pesquisar"
-        class="form-control"
-        id="pesquisar"
-        aria-describedby="pesquisar"
-      />
-    </div> -->
-  </header>
+<app-container
+  titulo="De olho nos meus investimentos"
+  subTitulo="Área de ações"
+  decricaoBtn="Adicionar"
+  (_onClick)="redirecionaCadastroAcoes()"
+>
   <!-- TODO: componentizar o card -->
   <div class="cards">
     <div *ngFor="let acao of acoes$ | async" class="card [ is-collapsed ]">
@@ -32,4 +19,6 @@
       </div>
     </div>
   </div>
-</section>
+</app-container>
+
+

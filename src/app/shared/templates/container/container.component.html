@@ -1,0 +1,12 @@
+<main class="wrapper">
+  <header class="header">
+    <h1 class="header__title">{{ titulo }} <i class="fa fa-money mb-2"></i></h1>
+    <div class="header__content mt-4">
+      <h2 class="header__subtitle">{{ subTitulo }}</h2>
+      <button class="btn btn-dark" (click)="handleClick($event)">
+        {{ decricaoBtn }}
+      </button>
+    </div>
+  </header>
+  <ng-content></ng-content>
+</main>
