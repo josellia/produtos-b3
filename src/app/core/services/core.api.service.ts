@@ -21,12 +21,16 @@ export class CoreApiService<T> {
     )
   }
 
-  post(url:string, objectPost: T): Observable<T> {
-    return this.http.post<T>(url, objectPost);
+  post(url:string, objectData: T): Observable<T> {
+    return this.http.post<T>(url, objectData);
   }
 
   delete(url:string, id: number | string):Observable<T> {
     return this.http.delete<T>(`${url}/${id}`);
+ }
+
+ patch(url: string, id: number | string, objectData: T):Observable<T> {
+  return this.http.patch<T>(`${url}/${id}`, {objectData});
  }
 
   private handleError(error: HttpErrorResponse) {

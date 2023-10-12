@@ -1,7 +1,7 @@
 import { FormControl, Validators } from '@angular/forms';
 
 /* eslint-disable */
-const validCharacters = /[^\s\w,.:&\/()+%'`@-]/;
+const validCharacters = /[^a-zA-Z0-9]+/g;
 
 
 export class CustomValidators extends Validators {

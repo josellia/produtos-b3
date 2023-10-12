@@ -46,5 +46,20 @@ export class AcoesStoreService extends Store<Acao[]> {
 
         this.store(acoes);
       })
-    )
+    );
+
+    update$ = (acaoId: number, acao: Acao) => this.coreApiSerice
+    .patch(environment.urlBase, acaoId, acao)
+    .pipe(
+      tap(resAcao => {
+        const posts = this.getAll();
+        const postIndex = this.getAll().findIndex(item => item.id === acaoId);
+        posts[postIndex] = {
+          ...acao,
+          id: resAcao.id,
+        };
+
+        this.store(posts);
+      })
+    );
 }

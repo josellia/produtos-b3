@@ -17,6 +17,13 @@ const routes: Routes = [
         (m) => m.CadastroAcoesModule
       ),
   },
+  {
+    path: 'editar-acoes',
+    loadChildren: () =>
+      import('./views/editar-acoes/editar-acoes.module').then(
+        (m) => m.EditarAcoesModule
+      ),
+  },
 ];
 
 @NgModule({

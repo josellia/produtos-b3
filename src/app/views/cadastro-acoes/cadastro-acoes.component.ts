@@ -36,10 +36,19 @@ export class CadastroAcoesComponent implements OnInit {
 
   cadastrarAcoesForm(): void {
     this.acoesForm = this.form.group({
-      nome: ['', [Validators.required]],
-      quantidade: ['', [Validators.required]],
-      preco: ['', [Validators.required]],
-      pvp: ['', [Validators.required]],
+      nome: ['', [Validators.required, CustomValidators.validateCharacters]],
+      quantidade: ['', Validators.compose([
+        Validators.required,
+        Validators.min(1)
+      ])],
+      preco: ['', Validators.compose([
+        Validators.required,
+        Validators.min(0)
+      ])],
+      pvp:  ['', Validators.compose([
+        Validators.required,
+        Validators.min(0)
+      ])],
     });
 
     this.acoesForm.valueChanges.subscribe(() => {

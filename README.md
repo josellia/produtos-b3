@@ -13,3 +13,8 @@ Para simular a API navegue até a pasta api no terminal digite   `npm run dev`
 ## Testes
 
 Utilizam jest
+
+## Validações form
+
+Todos os campos são obrigatórios, o campo Ticket da ação valida caracteres especiais
+Os campos númericos também possuem validação

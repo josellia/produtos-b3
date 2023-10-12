@@ -6,10 +6,11 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormErrorService {
 
-   validationMessages() {
+  mensagensValidacao() {
     const messages = {
       required: 'O campo é obrigatório',
-      nome: 'Ticket inválido',
+      min: 'Valor inválido',
+      text: 'Ticket inválido',
       not_allowed_characters: (matches: any[]) => {
 
         let matchedCharacters = matches;
@@ -41,7 +42,7 @@ export class FormErrorService {
         formErrors[field] = '';
         const control = form.get(field);
 
-        const messages: any = this.validationMessages();
+        const messages: any = this.mensagensValidacao();
         if (control && !control.valid) {
           if (!checkDirty || (control.dirty || control.touched)) {
             for (const key in control.errors) {
