@@ -25,10 +25,10 @@
             <p class="mt-4">Preço: {{ acao.preco | currency: 'BRL' }}</p>
             <p class="mt-4">P/vp: {{ acao.pvp }}</p>
             <div class="btn-group">
-              <button class="btn" (click)="deleteAcoes(acao.id)">
+              <button role="button" class="btn" (click)="deleteAcoes(acao.id)">
                 <i class="fa fa-trash"></i>
               </button>
-              <button class="btn" routerLink="/editar-acoes"><i class="fa fa-edit"></i></button>
+              <button role="button" class="btn" routerLink="/editar-acoes"><i class="fa fa-edit"></i></button>
             </div>
           </div>
         </div>
