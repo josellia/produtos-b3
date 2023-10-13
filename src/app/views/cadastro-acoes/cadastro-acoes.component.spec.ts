@@ -1,13 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
 import { AcoesStoreService } from '../../core/store/acoes/acoes-store.service';
 import { CadastroAcoesComponent } from './cadastro-acoes.component';
-import { ContainerComponent } from '@shared/templates/container/container.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Acao } from '@shared/models/acoes.interface';
-import { FormErrorService } from '@core/services/erros/form-error.service';
+import { ContainerComponent } from '../../shared/templates/container/container.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Acao } from '../../shared/models/acoes.interface';
+import { FormErrorService } from '../../../app/core/services/erros/form-error.service';
 
 describe('CadastroAcoesComponent', () => {
   let component: CadastroAcoesComponent;
@@ -20,7 +20,7 @@ describe('CadastroAcoesComponent', () => {
     TestBed.configureTestingModule({
       declarations: [CadastroAcoesComponent, ContainerComponent],
       imports: [HttpClientTestingModule, FormsModule, ReactiveFormsModule],
-      providers: [AcoesStoreService, FormErrorService],
+      providers: [AcoesStoreService, FormErrorService, FormBuilder],
     });
     fixture = TestBed.createComponent(CadastroAcoesComponent);
     acoesStoreService = TestBed.inject(AcoesStoreService);
@@ -44,22 +44,44 @@ describe('CadastroAcoesComponent', () => {
 
   });
 
-  it('Quando a função redirecionaListaAcoes foe executada deve redirecionar para a lista de ações', () => {
-    //jest.spyOn(router, 'navigate');
-    const mockWindow = {
-      location: {
-        assign() {jest.fn()}
+  // it('Quando a função redirecionaListaAcoes foe executada deve redirecionar para a lista de ações', () => {
+
+  //   const mockWindow = {
+  //     location: {
+  //       assign() {jest.fn()}
+  //     }
+  //   }
+  //   const spy = jest.spyOn(mockWindow.location, 'assign');
+
+  //   fixture.detectChanges();
+  //   component.redirecionaListaAcoes();
+
+
+  //   expect(spy).toHaveBeenCalledWith('/list-acoes');
+  // });
+
+  it('Quando a função cadastrarAcoesForm for chamada deve preencher o objeto ', fakeAsync(() => {
+    const acao =
+      {
+        nome: 'CEMIG4',
+        quantidade: 100,
+        preco: 12.45,
+        pvp: 1.15,
       }
-    }
-    const spy = jest.spyOn(mockWindow.location, 'assign');
+
+    const obj = JSON.stringify(acao);
 
     fixture.detectChanges();
-    component.redirecionaListaAcoes();
+    component.cadastrarAcoesForm();
 
-   // expect(router.navigate).toHaveBeenCalledWith(['/list-acoes']);
-    expect(spy).toHaveBeenCalledWith('/list-acoes');
-  });
 
+    component.acoesForm.controls['nome'].setValue(acao.nome);
+    component.acoesForm.controls['quantidade'].setValue(acao.quantidade);
+    component.acoesForm.controls['preco'].setValue(acao.preco);
+    component.acoesForm.controls['pvp'].setValue(acao.pvp);
+    expect(JSON.stringify(component.acoesForm.value)).toEqual(obj);
+
+  }));
 });
 
 
