@@ -18,7 +18,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'editar-acoes',
+    path: 'editar-acoes/:id',
     loadChildren: () =>
       import('./views/editar-acoes/editar-acoes.module').then(
         (m) => m.EditarAcoesModule

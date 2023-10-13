@@ -28,7 +28,7 @@
               <button role="button" class="btn" (click)="deleteAcoes(acao.id)">
                 <i class="fa fa-trash"></i>
               </button>
-              <button role="button" class="btn" routerLink="/editar-acoes"><i class="fa fa-edit"></i></button>
+              <button role="button" class="btn" [routerLink]="['/editar-acoes', acao.id]"><i class="fa fa-edit"></i></button>
             </div>
           </div>
         </div>
