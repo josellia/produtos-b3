@@ -20,7 +20,7 @@ export class CadastroAcoesComponent implements OnInit {
     pvp: null,
   };
   constructor(
-    private form: FormBuilder,
+    private formBuilder: FormBuilder,
     private router: Router,
     private formErrorService: FormErrorService,
     private acoesStoreService: AcoesStoreService
@@ -35,7 +35,7 @@ export class CadastroAcoesComponent implements OnInit {
   }
 
   cadastrarAcoesForm(): void {
-    this.acoesForm = this.form.group({
+    this.acoesForm = this.formBuilder.group({
       nome: ['', [Validators.required, CustomValidators.validateCharacters]],
       quantidade: ['', Validators.compose([
         Validators.required,

@@ -30,7 +30,16 @@ export class CoreApiService<T> {
  }
 
  patch(url: string, id: number | string, objectData: T):Observable<T> {
-  return this.http.patch<T>(`${url}/${id}`, {objectData});
+  return this.http.patch<T>(`${url}/${id}`, objectData);
+ }
+
+ findById(url: string, id: number):Observable<T> {
+  return this.http.get<T>(`${url}/${id}`).pipe(
+    map((response) => {
+      return response;
+    }),
+    catchError((error) =>  this.handleError(error))
+  )
  }
 
   private handleError(error: HttpErrorResponse) {

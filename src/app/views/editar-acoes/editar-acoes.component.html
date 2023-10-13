@@ -1,1 +1,71 @@
-<p>editar-acoes works!</p>
+<app-container
+  titulo="Cadastro de ações"
+  subTitulo="Área de ações"
+  decricaoBtn="Minhas ações"
+  (_onClick)="redirecionaListaAcoes()"
+>
+  <div class="form mt-4">
+    <form [formGroup]="acoesForm" *ngIf="acoesForm" autocomplete="off">
+      <div class="mb-3">
+        <label for="nome" class="form-label">Ticket da ação</label>
+        <input
+          type="text"
+          name="nome"
+          formControlName="nome"
+          class="form-control"
+          id="nome"
+          aria-describedby="nome"
+        />
+        <span id="nome" class="form-text text-danger">{{
+          formErros.nome
+        }}</span>
+      </div>
+      <div class="mb-3">
+        <label for="quantidade" class="form-label">Quantidade</label>
+        <input
+          type="number"
+          name="quantidade"
+          formControlName="quantidade"
+          class="form-control"
+          id="quantidade"
+        />
+        <span id="quantidade" class="form-text text-danger">{{
+          formErros.quantidade
+        }}</span>
+      </div>
+      <div class="mb-3">
+        <label for="preco" class="form-label">Preço</label>
+        <input
+          type="number"
+          name="preco"
+          formControlName="preco"
+          class="form-control"
+          id="preco"
+        />
+        <span id="preco" class="form-text text-danger">{{
+          formErros.preco
+        }}</span>
+      </div>
+      <div class="mb-3">
+        <label for="pvp" class="form-label">P/VP</label>
+        <input
+          type="number"
+          name="pvp"
+          formControlName="pvp"
+          class="form-control"
+          id="pvp"
+        />
+        <span id="pvp" class="form-text text-danger">{{ formErros.pvp }}</span>
+      </div>
+      <button
+      role="button"
+        style="width: 100%"
+        type="submit"
+        class="btn btn-dark"
+        (click)="editarAcoes()"
+      >
+        Salvar
+      </button>
+    </form>
+  </div>
+</app-container>

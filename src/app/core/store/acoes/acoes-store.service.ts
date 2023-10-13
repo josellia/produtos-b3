@@ -14,14 +14,14 @@ export class AcoesStoreService extends Store<Acao[]> {
     super();
   }
 
+
   init = (): void => {
     if (this.getAll()) { return; }
 
-    this.coreApiSerice.findAll(environment.urlBase).pipe(
+    this.coreApiSerice.findAll(`${environment.urlBase}/?_sort=id&_order=desc`).pipe(
       tap(this.store)
     ).subscribe();
   }
-
 
   create$ = (acao: Acao): Observable<Acao> =>
     this.coreApiSerice.post(environment.urlBase, acao).pipe(
@@ -41,25 +41,25 @@ export class AcoesStoreService extends Store<Acao[]> {
     .pipe(
       tap(() => {
         const acoes = this.getAll();
-        const postIndex = this.getAll().findIndex(item => item.id === acaoId);
-        acoes.splice(postIndex, 1);
+        const acoesIndex = this.getAll().findIndex(item => item.id === acaoId);
+        acoes.splice(acoesIndex, 1);
 
         this.store(acoes);
       })
     );
 
-    update$ = (acaoId: number, acao: Acao) => this.coreApiSerice
+    update$ = (acaoId: number | any, acao: Acao) => this.coreApiSerice
     .patch(environment.urlBase, acaoId, acao)
     .pipe(
       tap(resAcao => {
-        const posts = this.getAll();
-        const postIndex = this.getAll().findIndex(item => item.id === acaoId);
-        posts[postIndex] = {
+        const acoes = this.getAll();
+        const acaoIndex = this.getAll().findIndex(item => item.id === acaoId);
+        acoes[acaoIndex] = {
           ...acao,
           id: resAcao.id,
         };
 
-        this.store(posts);
+        this.store(acoes);
       })
     );
 }

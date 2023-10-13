@@ -1,0 +1,11 @@
+@import '../../../assets/styles/global';
+
+.form {
+  margin: rem(15px);
+  width: 60%;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: rem(10px);
+}
