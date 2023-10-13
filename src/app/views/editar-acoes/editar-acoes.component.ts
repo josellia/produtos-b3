@@ -41,7 +41,11 @@ export class EditarAcoesComponent implements OnInit {
   }
 
   redirecionaListaAcoes() {
-    this.router.navigate(['/list-acoes']);
+
+   // this.router.navigate(['/list-acoes']);
+    //  TODO: refatorar, não é uma boa prática
+    window.location.href = '/list-acoes';
+
   }
 
   editarAcoesForm(): void {

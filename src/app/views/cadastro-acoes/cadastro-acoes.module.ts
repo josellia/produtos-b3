@@ -15,12 +15,11 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     CadastroAcoesRoutingModule,
-    RouterModule,
     ReactiveFormsModule,
     SharedModule
   ],
 
-  exports: [ RouterModule],
+  // exports: [ RouterModule],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class CadastroAcoesModule { }

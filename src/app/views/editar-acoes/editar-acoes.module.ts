@@ -15,11 +15,10 @@ import { SharedModule } from '@shared/shared.module';
   imports: [
     CommonModule,
     EditarAcoesRoutingModule,
-    RouterModule,
     ReactiveFormsModule,
     SharedModule
   ],
 
-  exports: [RouterModule],
+
 })
 export class EditarAcoesModule { }

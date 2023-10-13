@@ -15,18 +15,18 @@
       "id": 5
     },
     {
-      "nome": "teste2",
-      "quantidade": 4,
-      "preco": 5,
+      "nome": "teste",
+      "quantidade": 3,
+      "preco": 3,
       "pvp": 3,
-      "id": 7
+      "id": 11
     },
     {
-      "nome": "teste2",
-      "quantidade": 4,
+      "nome": "testefinal",
+      "quantidade": 3,
       "preco": 3,
-      "pvp": 2,
-      "id": 8
+      "pvp": 1,
+      "id": 12
     }
   ]
 }
