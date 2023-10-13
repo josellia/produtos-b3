@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Router } from '@angular/router';
-import { AcoesStoreService } from '@core/store/acoes/acoes-store.service';
+import { AcoesStoreService } from '../../core/store/acoes/acoes-store.service';
 import { CadastroAcoesComponent } from './cadastro-acoes.component';
 import { ContainerComponent } from '@shared/templates/container/container.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,15 +41,23 @@ describe('CadastroAcoesComponent', () => {
     component.ngOnInit();
 
     expect(component.cadastrarAcoesForm).toHaveBeenCalled();
+
   });
 
   it('Quando a função redirecionaListaAcoes foe executada deve redirecionar para a lista de ações', () => {
-    jest.spyOn(router, 'navigate');
+    //jest.spyOn(router, 'navigate');
+    const mockWindow = {
+      location: {
+        assign() {jest.fn()}
+      }
+    }
+    const spy = jest.spyOn(mockWindow.location, 'assign');
 
     fixture.detectChanges();
     component.redirecionaListaAcoes();
 
-    expect(router.navigate).toHaveBeenCalledWith(['/list-acoes']);
+   // expect(router.navigate).toHaveBeenCalledWith(['/list-acoes']);
+    expect(spy).toHaveBeenCalledWith('/list-acoes');
   });
 
 });
