@@ -44,21 +44,21 @@ describe('CadastroAcoesComponent', () => {
 
   });
 
-  // it('Quando a função redirecionaListaAcoes foe executada deve redirecionar para a lista de ações', () => {
+  it('Quando a função redirecionaListaAcoes foe executada deve redirecionar para a lista de ações', () => {
 
-  //   const mockWindow = {
-  //     location: {
-  //       assign() {jest.fn()}
-  //     }
-  //   }
-  //   const spy = jest.spyOn(mockWindow.location, 'assign');
+    const mockWindow = {
+      location: {
+        assign() {jest.fn()}
+      }
+    }
+    const spy = jest.spyOn(mockWindow.location, 'assign');
 
-  //   fixture.detectChanges();
-  //   component.redirecionaListaAcoes();
+    fixture.detectChanges();
+    component.redirecionaListaAcoes();
 
 
-  //   expect(spy).toHaveBeenCalledWith('/list-acoes');
-  // });
+    expect(spy).toHaveBeenCalledWith('/list-acoes');
+  });
 
   it('Quando a função cadastrarAcoesForm for chamada deve preencher o objeto ', fakeAsync(() => {
     const acao =
@@ -80,7 +80,6 @@ describe('CadastroAcoesComponent', () => {
     component.acoesForm.controls['preco'].setValue(acao.preco);
     component.acoesForm.controls['pvp'].setValue(acao.pvp);
     expect(JSON.stringify(component.acoesForm.value)).toEqual(obj);
-
   }));
 });
 

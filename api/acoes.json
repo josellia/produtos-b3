@@ -20,13 +20,6 @@
       "preco": 3,
       "pvp": 3,
       "id": 11
-    },
-    {
-      "nome": "testefinal",
-      "quantidade": 3,
-      "preco": 3,
-      "pvp": 1,
-      "id": 12
     }
   ]
 }

@@ -80,7 +80,14 @@
           }
         },
         "test": {
-          "builder": "@angular-builders/jest:run"
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json"
+          }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",

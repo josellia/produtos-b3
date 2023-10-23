@@ -9,3 +9,8 @@
   margin: 0 auto;
   padding: rem(10px);
 }
+
+.ng-touched .ng-invalid:not(form) {
+  border-color: #ff0000;
+  color: #ff0000;
+ }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormErrorService } from '@core/services/erros/form-error.service';
-import { AcoesStoreService } from '@core/store/acoes/acoes-store.service';
-import { CustomValidators } from '@shared/utils/custom-validator';
+import { FormErrorService } from '../../core/services/erros/form-error.service';
+import { AcoesStoreService } from '../../core/store/acoes/acoes-store.service';
+import { CustomValidators } from '../../../app/shared/utils/custom-validator';
 
 @Component({
   selector: 'app-cadastro-acoes',

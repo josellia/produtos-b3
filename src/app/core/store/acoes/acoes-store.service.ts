@@ -1,10 +1,10 @@
-import { Acao } from '@shared/models/acoes.interface';
+import { Acao } from '../../../shared/models/acoes.interface';
 import { Store } from '../Store';
 import { Injectable } from '@angular/core';
-import { CoreApiService } from '@core/services/core.api.service';
+import { CoreApiService } from '../../services/core.api.service';
 
 import { Observable, tap } from 'rxjs';
-import { environment } from '@environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

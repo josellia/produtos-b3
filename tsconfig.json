@@ -4,12 +4,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "paths": {
-      "@core/*": ["src/app/core/*"],
-      "@shared/*":["src/app/shared/*"],
-      "@views/*": ["src/app/views/*"],
-      "@environments/*": ["src/environments/*"]
-    },
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitOverride": true,
@@ -24,17 +18,18 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "types": ["jest", "node"],
     "useDefineForClassFields": false,
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "esModuleInterop": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "types": ["jest", "node"]
 }
